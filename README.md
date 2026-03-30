@@ -1,9 +1,12 @@
 # EXPERIMENT-04-INTERRUPT-GENERATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR
 
-###  DATE:26-03-2026 
+###  DATE: 26.03.2026
+
 ###  NAME: KAVIBHARATHI K
-###  ROLL NO : 212224220045
+###  ROLL NO :212224220045
 ###  DEPARTMENT: B.TECH IT
+
+
 ### Aim:
 To Interface a IR Sensor to digital port of iot development board  and generate an interrupt and visualize on the serial monitor 
 
@@ -130,7 +133,6 @@ The diagram below shows how the GPIO pins are connected to the 16 interrupt line
 #if defined(__GNUC__)
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #endif
-
 UART_HandleTypeDef huart2;
 
 void SystemClock_Config(void);
@@ -139,40 +141,37 @@ static void MX_USART2_UART_Init(void);
 
 int main(void)
 {
-
   HAL_Init();
-
   SystemClock_Config();
-
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-
   while (1)
   {
-
   }
-  }
+ 
+}
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4)==1)
 	{
-		printf("INTERRUPT GENERATED\n");
+		printf("INTERRUPT GENERATED.\n");
 	}
 }
-PUTCHAR_PROTOTYPE{
-	    HAL_UART_Transmit(&huart2,(uint8_t*)&ch,1,0xFFFF);
-	    return ch;
+PUTCHAR_PROTOTYPE
+{
+	HAL_UART_Transmit(&huart2,(uint8_t*)&ch,1,0xFFFF);
+	return ch;
 }
 ```
+
 ## Output screen shots of serial port utility   :
- 
- <img width="951" height="877" alt="IOT-4" src="https://github.com/user-attachments/assets/c50fa5f4-8480-4741-8027-f5751c99a033" />
 
+<img width="1919" height="1055" alt="553398464-38830cb5-d6b5-41ef-8095-9f71cf5f14ba" src="https://github.com/user-attachments/assets/95850924-54a1-4e9a-8b24-9cab3d73db42" />
+
+ 
  ## Circuit board :
- 
-<img width="638" height="802" alt="image" src="https://github.com/user-attachments/assets/a222852a-2ec5-4015-98e2-cd2cded2584c" />
 
+ ![553400254-dd942aa4-9bad-4f2e-afc8-fae4b9e95e6d](https://github.com/user-attachments/assets/e8ec96a0-7736-481e-98cd-d8b14bf1e4d2)
 
- 
 ## Result :
 Interfacing a  IR SENSOR and interrupt is generated using external interrupt mode , visualized on serial port 
